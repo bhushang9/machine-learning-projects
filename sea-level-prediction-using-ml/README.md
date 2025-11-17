@@ -1,93 +1,95 @@
-🌊 Sea Level Prediction Using Prophet
+# 🌊 Sea Level Prediction Using Prophet
 
-A time-series forecasting project using historical Monthly Mean Sea Level (MSL) data from NOAA to predict future sea level trends.
+A time-series forecasting project that uses historical Monthly Mean Sea Level (MSL) data from NOAA to analyze past trends and predict future sea levels using the **Prophet** model.
 
-📌 Project Overview
+---
 
-This project uses NOAA tide-gauge data to understand how sea levels have changed over time and to predict future sea levels using the Prophet forecasting model. The dataset is cleaned, visualized, modeled, and evaluated using multiple error metrics (MAE and SMAPE). A long-term projection up to the year 2100 is also generated.
+## 📌 Project Overview
 
-🔍 Objectives
+This project processes NOAA tide-gauge data to study long-term sea level changes.  
+Using the Prophet forecasting model, it predicts future sea level trends and evaluates model accuracy using MAE and SMAPE.  
+Long-term projections up to **2100** are also generated.
 
-Download and prepare long-term NOAA sea level data
+---
 
-Explore and visualize historical sea level trends
+## 🔍 Objectives
 
-Build a forecasting model using Prophet
+- Download and clean NOAA sea level data  
+- Explore and visualize historical sea level trends  
+- Build a forecasting model using Prophet  
+- Evaluate model performance (MAE & SMAPE)  
+- Generate short-term and long-term predictions  
+- Compare results with NOAA’s regional sea-level scenarios  
 
-Evaluate model performance on unseen test data
+---
 
-Predict future sea levels (short-term & long-term)
+## 🧪 Tools & Technologies
 
-Compare predictions with NOAA’s regional sea-level scenarios
+- Python  
+- Google Colab / Jupyter Notebook  
+- Pandas, NumPy, Matplotlib  
+- Prophet (Meta)  
+- NOAA Sea Level Trends Dataset  
 
-🧪 Tools & Technologies
+---
 
-Python
+## 📥 Data Source
 
-Google Colab / Jupyter Notebook
+NOAA Sea Level Trends (tide-gauge data).  
+Choose any station with at least **100+ years** of data.
 
-Pandas, NumPy, Matplotlib
+Data exported from:
 
-Prophet (Meta)
+- NOAA Relative Sea Level Trends  
+- NOAA U.S. RSL Linear Trends & 95% Confidence Intervals  
 
-NOAA Sea Level Trends Dataset
+---
 
-📥 Data Source
+## 🧹 Data Preprocessing
 
-NOAA Sea Level Trends:
-You can select any tide-gauge station with at least 100+ years of data.
-CSV exported from:
+- Removed extra header rows  
+- Cleaned column names  
+- Combined **Year + Month** → `ds` column (Prophet format)  
+- Converted `ds` to datetime index  
+- Visualized monthly values + 12-month rolling averages  
+- Train/Test split:
+  - **Train:** 1975–2000  
+  - **Test:** 2000–2025  
 
-NOAA Relative Sea Level Trends
+---
 
-NOAA U.S. RSL Linear Trends & Confidence Intervals
+## 📈 Modeling (Prophet)
 
-🧹 Data Preprocessing
+- Fitted Prophet model on training data  
+- Forecasted values for test period  
+- Generated future predictions up to **2100**  
+- Visualized forecasts with uncertainty intervals  
 
-Removed unnecessary header rows
+---
 
-Cleaned column names
+## 📊 Evaluation Metrics
 
-Combined Year and Month into Prophet-compatible ds column
+### **Mean Absolute Error (MAE):**  
+Measures average prediction error.
 
-Set ds as datetime index
+### **Symmetric Mean Absolute Percentage Error (SMAPE):**  
+Percentage-based accuracy for balanced evaluation.
 
-Visualized monthly values and rolling averages
+---
 
-Split dataset into Train (1975–2000) and Test (2000–2025)
+## 🌍 Key Questions Answered
 
-📈 Modeling
+- Has sea level rise accelerated over time?  
+- How accurate is Prophet for near-term predictions?  
+- When does the model underpredict or overpredict?  
+- How do long-term forecasts compare with NOAA projections?  
 
-The project uses the Prophet model to forecast Monthly Mean Sea Levels:
+---
 
-Steps include:
+## 📦 Project Type
 
-Fitting the model on training data
+**Machine Learning — Time Series Forecasting (Environmental Data Science)**
 
-Forecasting test data
+---
 
-Generating future predictions until 2100
 
-Visualizing forecast trend + uncertainty intervals
-
-📊 Evaluation Metrics
-
-The model is evaluated using:
-
-✔ Mean Absolute Error (MAE)
-
-Shows the average size of prediction errors.
-
-✔ Symmetric Mean Absolute Percentage Error (SMAPE)
-
-Shows percentage-based prediction accuracy.
-
-🌍 Key Questions Answered
-
-Has sea level rise accelerated over the past century?
-
-How well does Prophet predict near-term sea level changes?
-
-Where does the model underpredict or overpredict?
-
-How do long-term forecasts compare to NOAA scientific scenarios?
