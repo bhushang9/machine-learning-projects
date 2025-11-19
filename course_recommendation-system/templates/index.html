@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Course Recommendation System</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .scroll-container::-webkit-scrollbar {
+      height: 8px;
+    }
+    .scroll-container::-webkit-scrollbar-thumb {
+      background-color: rgba(107, 114, 128, 0.5);
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 min-h-screen py-10 px-4">
+  <div class="max-w-4xl mx-auto bg-white shadow-xl rounded-2xl overflow-hidden">
+    
+    <!-- Header -->
+    <div class="bg-gradient-to-r from-indigo-600 to-blue-600 py-8 px-6 text-center text-white">
+      <h2 class="text-4xl font-bold tracking-wide">Course Recommendation System</h2>
+      <p class="text-md mt-2 font-light max-w-2xl mx-auto">
+        Discover online courses tailored to your interests. Start typing and find recommendations based on your query.
+      </p>
+    </div>
+
+    <!-- Form -->
+    <div class="p-8">
+      <form method="POST" class="mb-10">
+        <label for="course_name" class="block text-gray-700 text-lg font-semibold mb-3">
+          What course are you looking for?
+        </label>
+        <input list="course_list" name="course_name" id="course_name"
+               {% if selected_course %} value="{{ selected_course }}" {% endif %}
+               placeholder="e.g., Python, Web Design..."
+               class="shadow border border-gray-300 rounded-xl w-full py-3 px-4 text-gray-700 text-md focus:outline-none focus:ring-2 focus:ring-indigo-400 transition duration-200" />
+        
+        <datalist id="course_list">
+          {% for course in courses %}
+            <option value="{{ course }}">
+          {% endfor %}
+        </datalist>
+
+        <button type="submit"
+                class="w-full bg-gradient-to-r from-indigo-500 to-blue-500 hover:from-blue-600 hover:to-indigo-600 text-white font-bold py-3 px-6 mt-6 rounded-xl shadow-md transition-transform transform hover:scale-105 duration-200">
+          Show Results
+        </button>
+      </form>
+
+      {% if recommendations %}
+        <div class="bg-gray-50 rounded-xl p-6 shadow-inner">
+          <h3 class="text-2xl font-semibold text-gray-800 mb-4">Recommended Courses</h3>
+
+          <div id="recommendations" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            {% for recommendation in recommendations %}
+              <div class="bg-white border border-gray-200 p-4 rounded-lg shadow hover:shadow-md transition duration-200">
+                <h4 class="text-base font-semibold text-blue-600 mb-2 leading-tight line-clamp-3 h-[66px]">
+                  <a href="{{ recommendation.url }}" target="_blank" class="hover:underline">
+                    {{ recommendation.name }}
+                  </a>
+                </h4>
+                <p class="text-sm text-gray-500">Click to explore this course.</p>
+              </div>
+            {% endfor %}
+          </div>
+
+          {% if recommendations|length > 6 %}
+          <div class="mt-6 text-center">
+            <button onclick="toggleMore()" class="text-indigo-600 hover:text-indigo-800 font-semibold">
+              Show More
+            </button>
+          </div>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <script>
+    // Simple JS to limit to 6 items initially
+    const cards = document.querySelectorAll("#recommendations > div");
+    let expanded = false;
+
+    function toggleMore() {
+      if (!expanded) {
+        cards.forEach(card => card.style.display = "block");
+        event.target.textContent = "Show Less";
+      } else {
+        cards.forEach((card, idx) => {
+          if (idx >= 6) card.style.display = "none";
+        });
+        event.target.textContent = "Show More";
+      }
+      expanded = !expanded;
+    }
+
+    // Initial limit
+    if (cards.length > 6) {
+      cards.forEach((card, idx) => {
+        if (idx >= 6) card.style.display = "none";
+      });
+    }
+  </script>
+</body>
+</html>
