@@ -8,8 +8,6 @@ A machine learning project that identifies different customer groups using **K-M
 **Kaggle Dataset:**  
 🔗 https://www.kaggle.com/datasets/vishakhdapat/customer-segmentation-clustering  
 
-Place the downloaded file inside:
-
 ---
 
 ## 🎯 Project Goals
@@ -20,7 +18,7 @@ Place the downloaded file inside:
 
 ---
 
-## 🧠 What This Project Does
+## 🧠 Key features 
 - Loads and preprocesses customer data  
 - Scales features before clustering  
 - Finds the best number of clusters via **Elbow Method**  
