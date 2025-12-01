@@ -1,0 +1,8 @@
+# Pregnancies: 0–17 (Number of times pregnant)
+# Glucose Level: 0–200 mg/dL
+# Blood Pressure: 0–140 mm Hg
+# Skin Thickness: 0–100 mm
+# Insulin Level: 0–900 µU/mL
+# BMI: 0–70 kg/m²
+# Diabetes Pedigree Function: 0.0–3.0 (Genetic risk score)
+# Age: 1–100 years
