@@ -11,7 +11,7 @@ with open('movie_data.pkl', 'rb') as file:
 
 # Function to fetch movie poster from TMDB API
 def fetch_poster(movie_id):
-    api_key = '8e132593f9fb0a0e5f362801fa091121'  
+    api_key = ''  
     url = f'https://api.themoviedb.org/3/movie/{movie_id}?api_key={api_key}&language=en-US'
     response = requests.get(url)
     
