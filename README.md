@@ -1,4 +1,4 @@
-# 🧠 Machine Learning Projects
+# 🤖 Machine Learning Projects
 
 This repository contains a collection of machine learning projects built using foundational and advanced ML techniques. Each project demonstrates practical problem-solving using supervised and unsupervised learning, model evaluation, and real-world applications.
 
