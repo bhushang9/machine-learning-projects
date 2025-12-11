@@ -1,7 +1,6 @@
 # 🧠 Machine Learning Projects
 
-This repository contains a collection of Machine Learning projects implemented using Python, Scikit-Learn, Pandas, NumPy, and Matplotlib.  
-Each project includes data preprocessing, model development, evaluation metrics, and visualizations.
+This repository contains a collection of Machine Learning projects implemented using Python, Scikit-Learn, Pandas, NumPy, and Matplotlib. Each project includes data preprocessing, model development, evaluation metrics, and visualizations.
 
 ---
 
